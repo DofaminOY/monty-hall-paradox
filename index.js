@@ -4,7 +4,7 @@ const changeBtn = document.getElementById("changeBtn");
 const stayBtn = document.getElementById("stayBtn");
 const result = document.getElementById("result");
 
-let doorsCount = 4; // количество дверей
+let doorsCount = 3; // количество дверей
 
 if (doorsCount < 3) {
   // защита от дурака.
