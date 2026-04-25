@@ -21,6 +21,23 @@ const runGame = (isChangeChoice) => {
     result.textContent = "Введите количество попыток больше 0";
     return;
   }
+
+  if (attempts > 50000000) {
+    result.textContent = "Бро, это не сработает 😄 Не хватит мощности для 50 миллионов генераций.";
+    return;
+  }
+
+  if (attempts > 1000000) {
+    const isConfirm = confirm(
+      "Не стоит вводить больше 1 миллиона попыток. Страница может зависнуть и быть недоступна некоторое время. Продолжить?"
+    );
+
+    if (!isConfirm) {
+      result.textContent = "Не стоит вводить больше 1 миллиона попыток. Страница может зависнуть и быть недоступна некоторое время. Продолжить?";
+      return;
+    }
+  }
+
   // Запускаем цикл
   for (let i = 0; i < attempts; i++) {
     const winDoor = Math.floor(Math.random() * 3);
